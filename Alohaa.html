@@ -2,23 +2,29 @@
 <html>
   <head>
     <title>Redirecting to WhatsApp...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-      // Extract 'entry' parameter from URL
-      const urlParams = new URLSearchParams(window.location.search);
-      const entryNumber = urlParams.get('entry');
+      document.addEventListener("DOMContentLoaded", function () {
+        // Extract 'entry' parameter from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const entryNumber = urlParams.get('entry');
 
-      if (entryNumber) {
-        // Generate WhatsApp link
-        const whatsAppLink = `https://wa.me/0164644696?text=Hello! Your entry number is: ${entryNumber}`;
-        
-        // Automatically open in a new tab
-        window.open(whatsAppLink, '_blank');
+        if (entryNumber) {
+          // Generate WhatsApp link
+          const whatsAppLink = `https://wa.me/0164644696?text=Hello! Your entry number is: ${entryNumber}`;
 
-        // Update fallback link with dynamic data
-        document.getElementById("fallback-link").href = whatsAppLink;
-      } else {
-        document.body.innerHTML = '<p>Error: Entry number not found. Please try again.</p>';
-      }
+          // Automatically open in a new tab
+          window.open(whatsAppLink, '_blank');
+
+          // Update fallback link with dynamic data
+          const fallbackLink = document.getElementById("fallback-link");
+          if (fallbackLink) {
+            fallbackLink.href = whatsAppLink;
+          }
+        } else {
+          document.body.innerHTML = '<p>Error: Entry number not found. Please try again.</p>';
+        }
+      });
     </script>
   </head>
   <body>
