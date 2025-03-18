@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Redirecting...</title>
     <script>
-      // Extract the 'entry' parameter from the URL
       const urlParams = new URLSearchParams(window.location.search);
       const entryNumber = urlParams.get('entry');
-
-      // Redirect to WhatsApp with the entry number in the message
       const whatsAppLink = `https://wa.me/0164644696?text=Hello! Your entry number is: ${entryNumber}`;
+
+      // Perform redirection to WhatsApp
       window.location.href = whatsAppLink;
     </script>
   </head>
   <body>
     <p>Redirecting to WhatsApp...</p>
+    <p>If you are not redirected automatically, <a href="https://wa.me/0164644696">click here</a>.</p>
   </body>
 </html>
