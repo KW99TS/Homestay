@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Redirecting...</title>
+    <title>Redirecting to WhatsApp...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-      // Extract the 'entry' parameter from the URL
+      // Extract 'entry' parameter from URL
       const urlParams = new URLSearchParams(window.location.search);
       const entryNumber = urlParams.get('entry');
 
-      // Generate the WhatsApp link
-      const whatsAppLink = `https://wa.me/0164644696?text=Hello! Your entry number is: ${entryNumber}`;
-
-      // Redirect to WhatsApp
-      window.location.href = whatsAppLink;
+      if (entryNumber) {
+        // Generate WhatsApp link dynamically
+        const whatsAppLink = `https://wa.me/0164644696?text=Hello! Your entry number is: ${entryNumber}`;
+        // Redirect to WhatsApp
+        window.location.href = whatsAppLink;
+      } else {
+        document.body.innerHTML = '<p>Error: Entry number not found. Please try again.</p>';
+      }
     </script>
   </head>
   <body>
