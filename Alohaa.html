@@ -4,15 +4,16 @@
     <title>Redirecting to WhatsApp...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-      // Extract 'entry' parameter from URL
+      // Extract the 'entry' parameter from the URL
       const urlParams = new URLSearchParams(window.location.search);
       const entryNumber = urlParams.get('entry');
 
       if (entryNumber) {
-        // Generate WhatsApp link dynamically
+        // Generate WhatsApp link with entry number
         const whatsAppLink = `https://wa.me/0164644696?text=Hello! Your entry number is: ${entryNumber}`;
-        // Redirect to WhatsApp
-        window.location.href = whatsAppLink;
+
+        // Open WhatsApp in a new tab
+        window.open(whatsAppLink, '_blank');
       } else {
         document.body.innerHTML = '<p>Error: Entry number not found. Please try again.</p>';
       }
@@ -20,6 +21,6 @@
   </head>
   <body>
     <p>Redirecting to WhatsApp...</p>
-    <p>If you are not redirected automatically, <a href="https://wa.me/0164644696">click here</a>.</p>
+    <p>If the new tab does not open, <a href="https://wa.me/0164644696" target="_blank">click here</a>.</p>
   </body>
 </html>
